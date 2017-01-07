@@ -1,15 +1,23 @@
 # Site Info
-title:              "The Plain"
-description:        "A minimalist Jekyll theme"
-author_name:        "Heiswayi Nrird" # change this to your name
-logo_url:           https://avatars0.githubusercontent.com/u/13794983?v=4 # Get it from GitHub API: https://api.github.com/users/<username>
+title:              "Scripts and sometimes proofs"
+description:        "Alejandro (Ale) Gomez-Londono personal site/blog/about-page"
+google_verify:      NA # Put your Google Verification here
+google_analytics:   NA # Put your Google Analytics code
+
+# Author Info
+author_name:        "Alejandro Gomez"
+author_email:       alegomez544@gmail.com
+author_gravatar:    687c7ea6cb8eec2275aa64443219a4a8
+logo_url:           https://avatars0.githubusercontent.com/u/1539099?v=4 # Gethttps://api.github.com/users/<username>
+twitter_username:   alegomez544
+github_username:    agomezl # GitHub username
 
 # Site Settings
-url:                https://heiswayi.github.io # main url
-baseurl:            /the-plain
-permalink:          /:title # Post permalink
-timezone:           Asia/Kuala_Lumpur # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-mathjax:            true  # enables support for mathjax - set to 'false' to disable
+url:                https://agomezl.refl.xyz # main url
+baseurl:            "" # Base URL must end WITHOUT a slash, default: ""
+permalink:          /notes/:title # Post permalink
+timezone:           Europe/Stockholm # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+mathjax:            true  # enables support for mathjax - set to false to disable
 
 # Site Build
 highlighter:        rouge
