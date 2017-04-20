@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>T2A</title><link href="ocean.css" rel="stylesheet" type="text/css" title="Ocean" /><script src="haddock-util.js" type="text/javascript"></script><script type="text/javascript">//<![CDATA[
+window.onload = function () {pageLoad();setSynopsis("mini_T2A.html");};
+//]]>
+</script></head><body><div id="package-header"><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul><p class="caption">tstp2agda-0.1.0.0: Proof-term reconstruction from TSTP to Agda</p></div><div id="content"><div id="module-header"><table class="info"><tr><th>Safe Haskell</th><td>None</td></tr><tr><th>Language</th><td>Haskell2010</td></tr></table><p class="caption">T2A</p></div><div id="table-of-contents"><p class="caption">Contents</p><ul><li><a href="#g:1">How to use tstp2agda</a></li><li><a href="#g:2">Getters</a></li><li><a href="#g:3">Agda translation</a></li><li><a href="#g:4">TSTP parsing</a></li></ul></div><div id="synopsis"><p id="control.syn" class="caption expander" onclick="toggleSection('syn')">Synopsis</p><ul id="section.syn" class="hide" onclick="toggleSection('syn')"><li class="src short"><a href="#v:getSubGoals">getSubGoals</a> :: [<a href="Data-TSTP.html#t:F">F</a>] -&gt; [<a href="Data-TSTP.html#t:F">F</a>]</li><li class="src short"><a href="#v:getRefutes">getRefutes</a> :: [<a href="Data-TSTP.html#t:F">F</a>] -&gt; [<a href="Data-TSTP.html#t:F">F</a>]</li><li class="src short"><a href="#v:getAxioms">getAxioms</a> :: [<a href="Data-TSTP.html#t:F">F</a>] -&gt; [<a href="Data-TSTP.html#t:F">F</a>]</li><li class="src short"><a href="#v:getConjeture">getConjeture</a> :: [<a href="Data-TSTP.html#t:F">F</a>] -&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Data-TSTP.html#t:F">F</a></li><li class="src short"><a href="#v:printPreamble">printPreamble</a> :: <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/Data-String.html#t:String">String</a> -&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/System-IO.html#t:IO">IO</a> ()</li><li class="src short"><a href="#v:printAuxSignatures">printAuxSignatures</a> :: <a href="Data-Proof.html#t:ProofMap">ProofMap</a> -&gt; [<a href="Data-Proof.html#t:ProofTree">ProofTree</a>] -&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/System-IO.html#t:IO">IO</a> ()</li><li class="src short"><a href="#v:printSubGoals">printSubGoals</a> :: [<a href="Data-TSTP.html#t:F">F</a>] -&gt; <a href="Data-TSTP.html#t:F">F</a> -&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/Data-String.html#t:String">String</a> -&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/System-IO.html#t:IO">IO</a> ()</li><li class="src short"><a href="#v:printProofBody">printProofBody</a> :: [<a href="Data-TSTP.html#t:F">F</a>] -&gt; <a href="Data-TSTP.html#t:F">F</a> -&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/Data-String.html#t:String">String</a> -&gt; [<a href="Data-TSTP.html#t:F">F</a>] -&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/Data-String.html#t:String">String</a> -&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/System-IO.html#t:IO">IO</a> ()</li><li class="src short"><a href="#v:printProofWhere">printProofWhere</a> :: <a href="Data-Proof.html#t:ProofMap">ProofMap</a> -&gt; <a href="Data-Proof.html#t:ProofTree">ProofTree</a> -&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/System-IO.html#t:IO">IO</a> ()</li><li class="src short"><a href="#v:buildProofMap">buildProofMap</a> :: [<a href="Data-TSTP.html#t:F">F</a>] -&gt; <a href="Data-Proof.html#t:ProofMap">ProofMap</a></li><li class="src short"><a href="#v:buildProofTree">buildProofTree</a> :: <a href="Data-Proof.html#t:ProofMap">ProofMap</a> -&gt; <a href="Data-TSTP.html#t:F">F</a> -&gt; <a href="Data-Proof.html#t:ProofTree">ProofTree</a></li><li class="src short"><a href="#v:parseFile">parseFile</a> :: <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/Data-Maybe.html#t:Maybe">Maybe</a> <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/System-IO.html#t:FilePath">FilePath</a> -&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/System-IO.html#t:IO">IO</a> [<a href="Data-TSTP.html#t:F">F</a>]</li></ul></div><div id="interface"><h1 id="g:1">How to use tstp2agda</h1><div class="doc"><p>Let use an example, given this problem</p><pre>  $ cat problem.tstp
+  fof(a1,axiom,a).
+  fof(a2,conjecture,a).
+</pre><p>and the corresponding
+ <a href="http://www.gilith.com/software/metis/">Metis</a>
+ proof</p><pre>  $ cat proof.tstp
+  ---------------------------------------------------------------------------
+  SZS status Theorem for examples<em>problem</em>Test-1.tstp
+  SZS output start CNFRefutation for examples<em>problem</em>Test-1.tstp
+  fof(a1, axiom, (a)).
+  fof(a2, conjecture, (a)).
+  fof(subgoal_0, plain, (a), inference(strip, [], [a2])).
+  fof(negate_0_0, plain, (~ a), inference(negate, [], [subgoal_0])).
+  fof(normalize_0_0, plain, (~ a),
+      inference(canonicalize, [], [negate_0_0])).
+  fof(normalize_0_1, plain, (a), inference(canonicalize, [], [a1])).
+  fof(normalize_0_2, plain, ($false),
+      inference(simplify, [], [normalize_0_0, normalize_0_1])).
+  cnf(refute_0_0, plain, ($false),
+      inference(canonicalize, [], [normalize_0_2])).
+  SZS output end CNFRefutation for examples<em>problem</em>Test-1.tstp
+</pre><p>we create some requiered data structures</p><pre>main &#8759; IO ()
+main = do
+  -- read the file
+  formulas &#8592; <code><a href="T2A.html#v:parseFile">parseFile</a></code> &quot;proof.tstp&quot;
+  -- create a map
+  proofmap &#8592; <code><a href="T2A.html#v:buildProofMap">buildProofMap</a></code> formulas
+  -- get subgoals,refutes,axioms, and the conjecture
+  let subgoals    = <code><a href="T2A.html#v:getSubGoals">getSubGoals</a></code> formulas
+  let refutes     = <code><a href="T2A.html#v:getRefutes">getRefutes</a></code> formulas
+  let axioms      = <code><a href="T2A.html#v:getAxioms">getAxioms</a></code> formulas
+  let (Just conj) = <code><a href="T2A.html#v:getConjeture">getConjeture</a></code> formulas
+  -- build a <code>proofTree</code> for each subgoal (using his associated refute)
+  let prooftree = <code><a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/GHC-OldList.html#v:map">map</a></code> (<code><a href="T2A.html#v:buildProofTree">buildProofTree</a></code> proofmap) refutes
+</pre><p>and then print the actual Agda code</p><pre>  -- PREAMBLE: module definitions and imports
+  <code><a href="T2A.html#v:printPreamble">printPreamble</a></code> &quot;BaseProof&quot;
+  -- STEP 1: Print auxiliary functions
+  <code><a href="T2A.html#v:printAuxSignatures">printAuxSignatures</a></code> proofmap prooftree
+  -- STEP 2: Subgoal handling
+  <code><a href="T2A.html#v:printSubGoals">printSubGoals</a></code> subgoals conj &quot;goals&quot;
+  -- STEP 3: Print main function signature
+  <code><a href="T2A.html#v:printProofBody">printProofBody</a></code> axioms conj &quot;proof&quot; subgoals &quot;goals&quot;
+  -- STEP 4: Print all the step of the proof as local definitions
+  <code><a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/Data-Foldable.html#v:mapM_">mapM_</a></code> (<code><a href="T2A.html#v:printProofWhere">printProofWhere</a></code> proofmap  prooftree
+</pre><p>and then get</p><pre>  module BaseProof where
+  open import Data.FOL.Shallow
+  postulate fun-normalize-0-0 : { a : Set} &#8594; &#172; a &#8594; &#172; a
+  postulate fun-normalize-0-1 : { a : Set} &#8594; a &#8594; a
+  postulate fun-normalize-0-2 : { a : Set} &#8594; &#172; a &#8594; a &#8594; &#8869;
+  postulate fun-refute-0-0 :  &#8869; &#8594; &#8869;
+  postulate goals : { a : Set} &#8594; a &#8594; a
+  proof : { a : Set} &#8594; a &#8594; a
+  proof {a} a1 = goals subgoal-0
+    where
+      fun-negate-0-0 : &#172; a &#8594; &#8869;
+      fun-negate-0-0 negate-0-0 = refute-0-0
+        where
+          normalize-0-0 = fun-normalize-0-0 negate-0-0
+          normalize-0-1 = fun-normalize-0-1 a1
+          normalize-0-2 = fun-normalize-0-2 normalize-0-0 normalize-0-1
+          refute-0-0 = fun-refute-0-0 normalize-0-2
+      subgoal-0 = proofByContradiction fun-negate-0-0
+</pre></div><h1 id="g:2">Getters</h1><div class="top"><p class="src"><a name="v:getSubGoals" class="def">getSubGoals</a> :: [<a href="Data-TSTP.html#t:F">F</a>] -&gt; [<a href="Data-TSTP.html#t:F">F</a>]</p><div class="doc"><p>Extract subgoals from a list of formulae.</p></div></div><div class="top"><p class="src"><a name="v:getRefutes" class="def">getRefutes</a> :: [<a href="Data-TSTP.html#t:F">F</a>] -&gt; [<a href="Data-TSTP.html#t:F">F</a>]</p><div class="doc"><p>Extract refuting steps from a list of formulae.</p></div></div><div class="top"><p class="src"><a name="v:getAxioms" class="def">getAxioms</a> :: [<a href="Data-TSTP.html#t:F">F</a>] -&gt; [<a href="Data-TSTP.html#t:F">F</a>]</p><div class="doc"><p>Extract axioms from a list of formulae.</p></div></div><div class="top"><p class="src"><a name="v:getConjeture" class="def">getConjeture</a> :: [<a href="Data-TSTP.html#t:F">F</a>] -&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/Data-Maybe.html#t:Maybe">Maybe</a> <a href="Data-TSTP.html#t:F">F</a></p><div class="doc"><p>Try to extract a conjecture from a list of formulae and checks
+ for uniqueness.</p></div></div><h1 id="g:3"><a href="http://wiki.portal.chalmers.se/agda/pmwiki.php">Agda</a> translation</h1><div class="top"><p class="src"><a name="v:printPreamble" class="def">printPreamble</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/Data-String.html#t:String">String</a></td><td class="doc"><p>Module name</p></td></tr><tr><td class="src">-&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/System-IO.html#t:IO">IO</a> ()</td><td class="doc empty">&nbsp;</td></tr></table></div></div><div class="top"><p class="src"><a name="v:printAuxSignatures" class="def">printAuxSignatures</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="Data-Proof.html#t:ProofMap">ProofMap</a></td><td class="doc"><p>map of formulas</p></td></tr><tr><td class="src">-&gt; [<a href="Data-Proof.html#t:ProofTree">ProofTree</a>]</td><td class="doc"><p>list of subgoals</p></td></tr><tr><td class="src">-&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/System-IO.html#t:IO">IO</a> ()</td><td class="doc empty">&nbsp;</td></tr></table></div><div class="doc"><p>Print a series of auxiliary functions required to perform most
+ of the steps of the proof. Every <code><a href="Data-TSTP.html#t:Formula">Formula</a></code> has a corresponding
+ function which has its parents as arguments and the current
+ function as return value. Since a proof is split in various
+ subgoals, this function receives a list of sub-<code><a href="Data-Proof.html#t:ProofTree">ProofTree</a></code>s</p><pre>   fun-step&#8344;_&#8345; : { &#957;&#8320; ... &#957;&#7522; : Set } &#8594; step&#8344;_&#8345;&#8321; &#8594; ... &#8594; step&#8344;_&#8345;&#11388; &#8594; step&#8344;_&#8345;
+</pre></div></div><div class="top"><p class="src"><a name="v:printSubGoals" class="def">printSubGoals</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: [<a href="Data-TSTP.html#t:F">F</a>]</td><td class="doc"><p>Subgoals</p></td></tr><tr><td class="src">-&gt; <a href="Data-TSTP.html#t:F">F</a></td><td class="doc"><p>Conjecture</p></td></tr><tr><td class="src">-&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/Data-String.html#t:String">String</a></td><td class="doc"><p>Function name (<code>subGoalImplName</code>)</p></td></tr><tr><td class="src">-&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/System-IO.html#t:IO">IO</a> ()</td><td class="doc empty">&nbsp;</td></tr></table></div><div class="doc"><p>Print the main subgoal implication function</p><pre>  subGoalImplName : subgoal&#8320; &#8594; ... &#8594; subgoal&#8345; &#8594; conjecture
+</pre></div></div><div class="top"><p class="src"><a name="v:printProofBody" class="def">printProofBody</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: [<a href="Data-TSTP.html#t:F">F</a>]</td><td class="doc"><p>Axioms</p></td></tr><tr><td class="src">-&gt; <a href="Data-TSTP.html#t:F">F</a></td><td class="doc"><p>Conjecture</p></td></tr><tr><td class="src">-&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/Data-String.html#t:String">String</a></td><td class="doc"><p>Function name (<code>proofName</code>)</p></td></tr><tr><td class="src">-&gt; [<a href="Data-TSTP.html#t:F">F</a>]</td><td class="doc"><p>Subgoals</p></td></tr><tr><td class="src">-&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/Data-String.html#t:String">String</a></td><td class="doc"><p>Name of <code>subGoalImplName</code></p></td></tr><tr><td class="src">-&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/System-IO.html#t:IO">IO</a> ()</td><td class="doc empty">&nbsp;</td></tr></table></div><div class="doc"><p>Print main proof type signature, and top level LHS ans RHS of the form</p><pre>  proofName : axiom&#8320; &#8594; ... &#8594; axiom&#8345; &#8594; conjecture
+  proofName axiomName&#8320; ... axiomName&#8345; = subGoalImplName subgoal&#8320; ... subgoal&#8345;
+    where
+</pre></div></div><div class="top"><p class="src"><a name="v:printProofWhere" class="def">printProofWhere</a> :: <a href="Data-Proof.html#t:ProofMap">ProofMap</a> -&gt; <a href="Data-Proof.html#t:ProofTree">ProofTree</a> -&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/System-IO.html#t:IO">IO</a> ()</p><div class="doc"><p>For a given subgoal print each formula definition in reverse order
+ of dependencies</p><pre>      negation&#8320; : &#172; &#964;&#8320; &#8594; &#8869;
+      negation&#8320; negate&#8320; = refute&#8320;
+        where
+          step&#8320;_&#7522; = fun-step&#8320;_&#7522; step&#8320;_&#7522;&#8321; .. step&#8320;_&#7522;&#11388;
+          ...
+          step&#8320;_&#8320; = fun-step&#8320;_&#8320; step&#8320;_&#8320;&#8321; .. step&#8320;_&#8320;&#8342;
+      subgoal&#8320; = proofByContradiction negation&#8320;
+      ...
+      negation&#8345; : &#172; &#964;&#8345; &#8594; &#8869;
+      negation&#8345; negate&#8345; = refute&#8345;
+        where
+          step&#8345;_&#8348; = fun-step&#8345;_&#8348; step&#8345;__&#8348;&#8321; .. step&#8345;_&#8348;&#8338;
+          ...
+          step&#8345;_&#8320; = fun-step&#8345;_&#8320; step&#8345;_&#8320;&#8321; .. step&#8345;_&#8320;&#7524;
+      subgoal&#8320; = proofByContradiction negation&#8345;
+</pre><p>This is perhaps the most important step and the one that does the
+ &quot;actual&quot; proof translation. The basic principle is to define each
+ <code>subgoal</code> in terms of its parents which for most (if not all) cases
+ implies a <code>negation</code> of the <code>subgoal</code> and a corresponding <code>refute</code>
+ term.</p></div></div><div class="top"><p class="src"><a name="v:buildProofMap" class="def">buildProofMap</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: [<a href="Data-TSTP.html#t:F">F</a>]</td><td class="doc"><p>List of functions</p></td></tr><tr><td class="src">-&gt; <a href="Data-Proof.html#t:ProofMap">ProofMap</a></td><td class="doc"><p>Map of the given functions indexed by its names</p></td></tr></table></div><div class="doc"><p><code><a href="T2A.html#v:buildProofMap">buildProofMap</a></code> <code>lf</code>, given a list of functions <code>lf</code> builds a <code><a href="Data-Proof.html#t:ProofMap">ProofMap</a></code></p></div></div><div class="top"><p class="src"><a name="v:buildProofTree" class="def">buildProofTree</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="Data-Proof.html#t:ProofMap">ProofMap</a></td><td class="doc"><p><code><a href="https://hackage.haskell.org/package/containers-0.5.6.2/docs/Data-Map-Lazy.html#t:Map">Map</a></code> for resolving dependencies</p></td></tr><tr><td class="src">-&gt; <a href="Data-TSTP.html#t:F">F</a></td><td class="doc"><p>Root formula</p></td></tr><tr><td class="src">-&gt; <a href="Data-Proof.html#t:ProofTree">ProofTree</a></td><td class="doc"><p>Tree of formulas with the given
+ formula as root</p></td></tr></table></div><div class="doc"><p><code><a href="T2A.html#v:buildProofTree">buildProofTree</a></code> <code>m</code> <code>f</code>, build a <code><a href="Data-Proof.html#t:ProofTree">ProofTree</a></code> with <code>f</code> as root,
+ and using <code>m</code> for dependencies resolution. Depending on the root,
+ not all values in <code>m</code> are used.</p></div></div><h1 id="g:4">TSTP parsing</h1><div class="top"><p class="src"><a name="v:parseFile" class="def">parseFile</a> :: <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/Data-Maybe.html#t:Maybe">Maybe</a> <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/System-IO.html#t:FilePath">FilePath</a> -&gt; <a href="https://hackage.haskell.org/package/base-4.8.0.0/docs/System-IO.html#t:IO">IO</a> [<a href="Data-TSTP.html#t:F">F</a>]</p><div class="doc"><p>Similar to <code><a href="TSTP.html#v:parse">parse</a></code> but reading directly from a file or stdin.</p></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.16.0</p></div></body></html>
