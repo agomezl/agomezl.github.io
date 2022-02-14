@@ -1,0 +1,106 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{casual}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.75]{geometry}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+% personal data
+\name{Alejandro}{Gómez Londoño}
+\title{Personal Letter}                               % optional, remove / comment the line if not wanted
+\address{Unit 403a 264 Anzac pde}{Kensington, NSW}{Australia}
+\phone[mobile]{+61-455-527-437}
+\email{alejandro.gomez@data61.csiro.au}
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%-----       letter       ---------------------------------------------------------
+
+\recipient{Magnus Myreen}
+          {Chalmers \\ D\&IT room 5452}
+\date{\today}
+
+\opening{Dear Dr. Myreen,}
+
+\closing{Sincerely,}
+
+\makelettertitle
+
+My name is Alejandro Gomez Londoño. I have a Bs in Computer Science
+from EAFIT University (Medellin, Colombia), and I am currently working
+as a proof engineer at TS@Data61. During the course of my degree, I
+was involved in different projects with topics ranging from HPC
+infrastructure to dependently typed programming languages. More
+recently, as part of my position in TS, I have worked in the
+development and maintenance of large scale Computer-assisted proofs.
+This diverse background has given me a broad sense of both practical
+and theoretical problems, and has taught me how they can fit together
+to develop truly high-assurance software systems.
+
+I have always had a strong interest in functional programming, and in
+more recent years, a fascination for theorem proving. Many of my
+personal and course projects have involved the use of languages like
+Haskell and/or Agda, making me familiar with the core principles of
+the functional paradigm as well as its most common practices (Monads,
+Dependent types, ADTs, etc). My interest in theorem proving grew out
+of curiosity for the Curry–Howard isomorphism while working in Agda,
+this even led me to start a project in proof term reconstruction (in
+Agda), and was, alongside my passion for FP, the main reason I
+decided to start working in theorem proving at TS.
+
+As a proof engineer, I'm part of a group tasked with the maintenance
+and development of proofs for the seL4 micro-kernel. Using
+isabelle/HOL for most of our work, we apply a range of techniques
+(Program refinement, Hoare Logic, etc) in our proofs of implementation
+correctness and security enforcement for seL4, and constantly expand
+our proof-base with new seL4 features and architectures. Additionally,
+during my college years, I worked as a system administrator for an HPC
+center on campus, where I and other students managed, maintained and
+upgraded most aspects of the infrastructure. This experience taught me
+many valuable lessons, and helped me develop a number of skills (Build
+systems, Networking, Linux know-how, etc) I still use in my work today.
+
+Finally, given my background and interests, I strongly believe this PhD
+position is a great opportunity to further develop my skills and
+knowledge, face new challenges, and meet new people. I still have many
+things to learn, but I’m passionate and eager to do so.
+
+Please have a look at my enclosed resume for more detailed information
+regarding my work experience and education, and let me know if you have
+any further questions. I look forward to discussing more in person.
+
+\makeletterclosing
+
+\end{document}
+
+
+%% end of file `template.tex'.
