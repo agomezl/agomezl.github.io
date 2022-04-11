@@ -18,17 +18,19 @@
 \usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
 %\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
 
+\usepackage{ragged2e}
+
 % adjust the page margins
 \usepackage[scale=0.75]{geometry}
 %\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
 %\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
 % personal data
-\name{Alejandro}{Gómez Londoño}
+\name{Alejandro}{Gómez-Londoño}
 \title{Personal Letter}                               % optional, remove / comment the line if not wanted
-\address{Unit 403a 264 Anzac pde}{Kensington, NSW}{Australia}
-\phone[mobile]{+61-455-527-437}
-\email{alejandro.gomez@data61.csiro.au}
+\address{Oxhagsgatan 56}{Göteborg}{Sweden}
+\phone[mobile]{+46-733-424-128}
+\email{agomezl@refl.xyz}
 
 % to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
 %\makeatletter
@@ -45,58 +47,78 @@
 \begin{document}
 %-----       letter       ---------------------------------------------------------
 
-\recipient{Magnus Myreen}
-          {Chalmers \\ D\&IT room 5452}
+\recipient{Klarnauts}
+          {@Klarna's Göteborg office}
 \date{\today}
 
-\opening{Dear Dr. Myreen,}
+\opening{}
 
 \closing{Sincerely,}
 
 \makelettertitle
 
-My name is Alejandro Gomez Londoño. I have a Bs in Computer Science
-from EAFIT University (Medellin, Colombia), and I am currently working
-as a proof engineer at TS@Data61. During the course of my degree, I
-was involved in different projects with topics ranging from HPC
-infrastructure to dependently typed programming languages. More
-recently, as part of my position in TS, I have worked in the
-development and maintenance of large scale Computer-assisted proofs.
-This diverse background has given me a broad sense of both practical
-and theoretical problems, and has taught me how they can fit together
-to develop truly high-assurance software systems.
+\justify
 
-I have always had a strong interest in functional programming, and in
-more recent years, a fascination for theorem proving. Many of my
-personal and course projects have involved the use of languages like
-Haskell and/or Agda, making me familiar with the core principles of
-the functional paradigm as well as its most common practices (Monads,
-Dependent types, ADTs, etc). My interest in theorem proving grew out
-of curiosity for the Curry–Howard isomorphism while working in Agda,
-this even led me to start a project in proof term reconstruction (in
-Agda), and was, alongside my passion for FP, the main reason I
-decided to start working in theorem proving at TS.
+My name is Alejandro Gomez Londoño. I have a BS in Computer Science
+from EAFIT University (Medellin, Colombia). I am currently a PhD
+student in formal methods at Chalmers University of Technology
+(Gothenburg, Sweden). During the course of my bachelors, I was
+involved in different projects with topics ranging from HPC
+infrastructure to dependently typed functional programming. After
+graduation, I worked as a proof engineer in developing and maintaining
+large-scale computer-assisted proofs. This experience motivated me to
+pursue a PhD in formal verification with an emphasis in compilers and
+concurrent systems. Through this time, I have been exposed to many
+practical and theoretical problems and have had lots of fun solving
+them.
 
-As a proof engineer, I'm part of a group tasked with the maintenance
-and development of proofs for the seL4 micro-kernel. Using
-isabelle/HOL for most of our work, we apply a range of techniques
-(Program refinement, Hoare Logic, etc) in our proofs of implementation
-correctness and security enforcement for seL4, and constantly expand
-our proof-base with new seL4 features and architectures. Additionally,
-during my college years, I worked as a system administrator for an HPC
-center on campus, where I and other students managed, maintained and
-upgraded most aspects of the infrastructure. This experience taught me
-many valuable lessons, and helped me develop a number of skills (Build
-systems, Networking, Linux know-how, etc) I still use in my work today.
+I have always had a passion for exploring new things, even if they
+seemed challenging at the time.
+%
+Early in my bachelor's, I learned functional programming (Haskell) by
+myself out of curiosity, using it for courses' projects as my go-to
+language. This interest in functional programming led me to take
+various advanced courses and began my path towards formal verification
+research.
+%
+I also had the opportunity to work as part of the initial system
+administration team for the HPC centre on campus. Our team deployed,
+managed, and maintained most aspects of the infrastructure. We faced
+several challenges, we were sometimes stuck, very often cold (from the
+cluster's AC), but we persevered and were never bored. This experience
+taught me many valuable lessons and helped me develop skills (build
+systems, networking, GNU/Linux know-how, etc.) I still use in my work
+today.
 
-Finally, given my background and interests, I strongly believe this PhD
-position is a great opportunity to further develop my skills and
-knowledge, face new challenges, and meet new people. I still have many
-things to learn, but I’m passionate and eager to do so.
+Shortly after graduation, I moved to Australia to work as a proof
+engineer at Data61@CSIRO. I was part of a group tasked with
+maintaining and developing proofs for the seL4 micro-kernel. While
+proof engineering is a highly specialised practice, it shares many
+similarities with conventional software development, especially in a
+large project like seL4. Our team had to coordinate with others
+outside our area of expertise, using code/proof reviews and issue
+tracking as ways to manage progress between groups. Overall, my work
+at Data61 was gratifying and motivated me to pursue a PhD in formal
+verification.
+%
+During my PhD, I worked on a language for concurrency with
+deadlock-freedom guarantees. Additionally, I extended the verified
+CakeML compiler (an SML-like language) to reason about a program's
+memory consumption. As a PhD, I learned how to rigorously search for
+answers to loosely defined questions, improve upon my failures, and,
+more importantly, communicate the new bits of knowledge I was able to
+produce with my peers.
+
+Finally, while I acknowledge my background is unconventional, I firmly
+believe that the Klarna engineering graduate program is an excellent
+opportunity to apply my skills in interesting ways, face new
+challenges, and meet new people. I still have many things to learn,
+but I’m passionate and eager to do so.
 
 Please have a look at my enclosed resume for more detailed information
-regarding my work experience and education, and let me know if you have
-any further questions. I look forward to discussing more in person.
+regarding my work experience and education, and let me know if you
+have any further questions. I look forward to discussing more in
+person.
 
 \makeletterclosing
 

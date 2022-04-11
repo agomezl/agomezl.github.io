@@ -138,7 +138,7 @@
   \@date\\[2em]% US informal style: "April 6, 2006"; UK formal style: "05/04/2006"
   % opening
   \raggedright%
-  \@opening\\[1.5em]%
+  \@opening\\%
   % ensure no extra spacing after \makelettertitle due to a possible blank line
 %  \ignorespacesafterend% not working
   \hspace{0pt}\par\vspace{-\baselineskip}\vspace{-\parskip}}
@@ -166,7 +166,7 @@
   \pagestyle{plain}}
 
 \renewcommand*{\makeletterclosing}{
-  \@closing\\[3em]%
+  \@closing\\%
   {\bfseries\@firstname~\@lastname}%
   \ifthenelse{\isundefined{\@enclosure}}{}{%
     \\%
